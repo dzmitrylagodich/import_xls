@@ -1,0 +1,15 @@
+xls_import.import_form:
+  path: '/admin/xls-import'
+  defaults:
+    _form: '\Drupal\xls_import\Form\XlsImportForm'
+    _title: 'Import XLS File'
+  requirements:
+    _permission: 'administer site configuration'
+
+xls_import.handle_import:
+  path: '/admin/xls-import/handle'
+  defaults:
+    _controller: '\Drupal\xls_import\Controller\XlsImportController::handleImport'
+    _title: 'Handle XLS Import'
+  requirements:
+    _permission: 'administer site configuration'

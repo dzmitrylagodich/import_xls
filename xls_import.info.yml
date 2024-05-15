@@ -1,0 +1,9 @@
+name: 'XLS Import'
+type: module
+description: 'A module to import data from XLS files.'
+core_version_requirement: ^9 || ^10
+package: Custom
+dependencies:
+  - drupal:field
+  - drupal:file
+  - phpoffice/phpspreadsheet
