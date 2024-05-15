@@ -5,6 +5,7 @@ namespace Drupal\xls_import\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use Drupal\node\Entity\Node;
 
 class XlsImportForm extends FormBase {
 
@@ -48,7 +49,13 @@ class XlsImportForm extends FormBase {
     $data = $sheet->toArray();
 
     foreach ($data as $row) {
-      // Обработка каждой строки
+      $node = Node::create([
+        'type' => 'product',
+        'title' => $row[0],
+        'field_price' => $row[1], 
+        'field_description' => $row[2],
+      ]);
+      $node->save();
     }
   }
 }
